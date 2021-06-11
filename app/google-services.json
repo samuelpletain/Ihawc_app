@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "457659394914",
+    "project_id": "ihawk-app",
+    "storage_bucket": "ihawk-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:457659394914:android:49c64ec858a6f6dc8cda3b",
+        "android_client_info": {
+          "package_name": "com.example.ihawcapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "457659394914-3542nomcunabgth7j5702v1cd9jufg5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuux5WyFZc_pAMRZq1XX6YFdnbHaM93Gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "457659394914-3542nomcunabgth7j5702v1cd9jufg5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
