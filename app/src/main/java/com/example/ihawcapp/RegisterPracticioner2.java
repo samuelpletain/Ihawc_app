@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class register_patient2 extends AppCompatActivity {
+public class RegisterPracticioner2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_patient2);
+        setContentView(R.layout.activity_register_practicioner2);
     }
 }
