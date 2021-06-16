@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".RegisterClinic2">
 
+    <EditText
+        android:id="@+id/reg_clinc_network"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Network"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/clinic_website"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Website"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/reg_clinc_network"
+        app:layout_constraintStart_toStartOf="@+id/reg_clinc_network"
+        app:layout_constraintTop_toBottomOf="@+id/reg_clinc_network" />
+
+    <Button
+        android:id="@+id/clinic_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        app:layout_constraintEnd_toEndOf="@+id/clinic_field"
+        app:layout_constraintStart_toStartOf="@+id/clinic_field"
+        tools:layout_editor_absoluteY="631dp" />
+
+    <EditText
+        android:id="@+id/clinic_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Hours"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/clinic_website"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/clinic_website"
+        app:layout_constraintTop_toBottomOf="@+id/clinic_website" />
+
+    <EditText
+        android:id="@+id/clinic_specialty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Specialty"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/clinic_hours"
+        app:layout_constraintStart_toStartOf="@+id/clinic_hours"
+        app:layout_constraintTop_toBottomOf="@+id/clinic_hours" />
+
+    <EditText
+        android:id="@+id/clinic_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Field"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/clinic_specialty"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/clinic_specialty"
+        app:layout_constraintTop_toBottomOf="@+id/clinic_specialty" />
 </androidx.constraintlayout.widget.ConstraintLayout>
