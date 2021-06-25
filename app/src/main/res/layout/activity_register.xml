@@ -110,4 +110,11 @@
         app:layout_constraintBottom_toTopOf="@+id/reg_next"
         app:layout_constraintEnd_toStartOf="@+id/reg_practicioner_check"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/reg_drop_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="489dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,4 @@
+/*
 package com.example.ihawcapp;
 
 import android.view.LayoutInflater;
@@ -45,3 +46,4 @@ public class ProviderAdaptator extends RecyclerView.Adapter<ProviderAdaptator.Vi
         return localDataSet.size();
     }
 }
+*/

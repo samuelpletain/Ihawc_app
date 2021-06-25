@@ -10,8 +10,17 @@ public class Practitioner extends Provider {
     public String thirdParty;
     public String tribalAffiliation;
 
-    public Practitioner(String name, String field, String specialties, String email, String phone, HashMap<String, String> hours, String title, String credentials, HashMap<String, String> adresses, Boolean telehealth, String thirdParty, String tribalAffiliation) {
-        super(name, field, specialties, email, phone, hours);
+    public Practitioner() {
+
+        this.title = title;
+        this.credentials = credentials;
+        this.adresses = adresses;
+        this.telehealth = telehealth;
+        this.thirdParty = thirdParty;
+        this.tribalAffiliation = tribalAffiliation;
+    }
+
+    public Practitioner(String title, String credentials, HashMap<String, String> adresses, Boolean telehealth, String thirdParty, String tribalAffiliation) {
         this.title = title;
         this.credentials = credentials;
         this.adresses = adresses;
@@ -42,5 +51,28 @@ public class Practitioner extends Provider {
 
     public String getTribalAffiliation() {
         return tribalAffiliation;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCredentials(String credentials) {
+        this.credentials = credentials;
+    }
+
+    public void setAdresses(HashMap<String, String> adresses) {
+        this.adresses = adresses;
+    }
+
+    public void setTelehealth(Boolean telehealth) {
+        this.telehealth = telehealth;
+    }
+
+    public void setThirdParty(String thirdParty) {
+        this.thirdParty = thirdParty;
+    }
+
+    public void setTribalAffiliation(String tribalAffiliation) {
+        this.tribalAffiliation = tribalAffiliation;
     }
 }
