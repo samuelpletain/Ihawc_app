@@ -71,50 +71,18 @@
         android:id="@+id/reg_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="50dp"
         android:text="Next"
         app:layout_constraintEnd_toEndOf="@+id/reg_phone"
         app:layout_constraintStart_toStartOf="@+id/reg_phone"
-        app:layout_constraintTop_toBottomOf="@+id/reg_phone" />
-
-    <CheckBox
-        android:id="@+id/reg_practicioner_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
-        android:text="Practicioner"
-        app:layout_constraintBottom_toTopOf="@+id/reg_next"
-        app:layout_constraintEnd_toStartOf="@+id/reg_clinic_check" />
-
-    <CheckBox
-        android:id="@+id/reg_clinic_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="50dp"
-        android:text="Clinic"
-        app:layout_constraintBottom_toTopOf="@+id/reg_next"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <CheckBox
-        android:id="@+id/reg_patient_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
-        android:text="Patient"
-        app:layout_constraintBottom_toTopOf="@+id/reg_next"
-        app:layout_constraintEnd_toStartOf="@+id/reg_practicioner_check"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/reg_drop_list" />
 
     <Spinner
         android:id="@+id/reg_drop_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="489dp" />
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/reg_phone"
+        app:layout_constraintStart_toStartOf="@+id/reg_phone"
+        app:layout_constraintTop_toBottomOf="@+id/reg_phone" />
 </androidx.constraintlayout.widget.ConstraintLayout>

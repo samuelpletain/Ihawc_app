@@ -20,7 +20,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
     private EditText reg_email, reg_password, reg_name, reg_address, reg_phone;
-    private CheckBox reg_patient_check, reg_practicioner_check, reg_clinic_check;
     private Button reg_next;
 
 
@@ -36,9 +35,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         reg_name = (EditText)findViewById(R.id.reg_name);
         reg_address = (EditText)findViewById(R.id.reg_address);
         reg_phone = (EditText)findViewById(R.id.reg_phone);
-        reg_patient_check = (CheckBox)findViewById(R.id.reg_patient_check);
-        reg_practicioner_check = (CheckBox)findViewById(R.id.reg_practicioner_check);
-        reg_clinic_check = (CheckBox)findViewById(R.id.reg_clinic_check);
         reg_next = (Button)findViewById(R.id.reg_next);
         reg_next.setOnClickListener(this);
         Spinner drop_list = (Spinner)findViewById(R.id.reg_drop_list);
