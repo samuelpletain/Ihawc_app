@@ -60,7 +60,7 @@ public class Practitioner extends Provider {
         this.credentials = credentials;
     }
 
-    public void setAdresses(HashMap<String, String> adresses) {
+    public void setAdresses(String adresses) {
         this.adresses = adresses;
     }
 
