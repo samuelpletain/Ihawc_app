@@ -112,26 +112,29 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             reg_password.requestFocus();
             return;
         }
+        /* testing if registration works
         Practitioner practitioner = new Practitioner();
         practitioner.setEmail(email);
         practitioner.setName(name);
         practitioner.setAdresses(address);//Should this be a hash map or string? and how do I convert
-        practitioner.setPhone(phone);
+        practitioner.setPhone(phone);*/
 
 
 
 
-        /* Probably not needed this will be done in the RegisterPractitioner2.java class
+        // Probably not needed this will be done in the RegisterPractitioner2.java class
         mAuth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull  Task<AuthResult> task) {
+
                     if(task.isSuccessful()){
                         Practitioner practitioner = new Practitioner();
                         practitioner.setEmail(email);
                         practitioner.setName(name);
                         practitioner.setAdresses(address);//Should this be a hash map or string? and how do I convert
                         practitioner.setPhone(phone);
+                        Toast.makeText(Register.this, "made it here", Toast.LENGTH_LONG).show();
 
 
 
@@ -143,6 +146,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()){
                                     Toast.makeText(Register.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+
+                                }
+                                else{
+                                    Toast.makeText(Register.this, "Failed to write to db", Toast.LENGTH_LONG).show();
                                 }
 
                             }
@@ -152,9 +159,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                     }
 
                 }
-            });*/
+            });
 
-        startActivity(new Intent(this, RegisterClinic2.class));
+
 
     }
 }

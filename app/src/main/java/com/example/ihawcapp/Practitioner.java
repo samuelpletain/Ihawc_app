@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Practitioner extends Provider {
     public String title;
     public String credentials;
-    public HashMap<String, String> adresses;
+    public String adresses; //possible hashmap later???
     public Boolean telehealth;
     public String thirdParty;
     public String tribalAffiliation;
@@ -20,7 +20,7 @@ public class Practitioner extends Provider {
         this.tribalAffiliation = tribalAffiliation;
     }
 
-    public Practitioner(String title, String credentials, HashMap<String, String> adresses, Boolean telehealth, String thirdParty, String tribalAffiliation) {
+    public Practitioner(String title, String credentials, String adresses, Boolean telehealth, String thirdParty, String tribalAffiliation) {
         this.title = title;
         this.credentials = credentials;
         this.adresses = adresses;
@@ -37,7 +37,7 @@ public class Practitioner extends Provider {
         return credentials;
     }
 
-    public HashMap<String, String> getAdresses() {
+    public String getAdresses() {
         return adresses;
     }
 
