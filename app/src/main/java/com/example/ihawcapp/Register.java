@@ -19,10 +19,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
     private EditText reg_email, reg_password, reg_name, reg_address, reg_phone;
@@ -57,11 +61,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()){
             case R.id.reg_next:
                 registerPractitioner();
-
-
-
-
-
                 break;
         }
 
@@ -126,9 +125,9 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         mAuth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
-                public void onComplete(@NonNull  Task<AuthResult> task) {
+                public void onComplete(@NonNull Task<AuthResult> task) {
 
-                    if(task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         Practitioner practitioner = new Practitioner();
                         practitioner.setEmail(email);
                         practitioner.setName(name);
@@ -137,31 +136,29 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         Toast.makeText(Register.this, "made it here", Toast.LENGTH_LONG).show();
 
 
+                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+                        db.collection("provider")
+                                .add(practitioner)
+                                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    @Override
+                                    public void onSuccess(DocumentReference documentReference) {
+                                        Toast.makeText(Register.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Toast.makeText(Register.this, "Failed to register", Toast.LENGTH_LONG).show();
+                                    }
+                                });
 
 
-                        FirebaseDatabase.getInstance().getReference("Practitioners")
-                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .setValue(practitioner).addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()){
-                                    Toast.makeText(Register.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
-
-                                }
-                                else{
-                                    Toast.makeText(Register.this, "Failed to write to db", Toast.LENGTH_LONG).show();
-                                }
-
-                            }
-                        });
-                    }else{
-                        Toast.makeText(Register.this, "Failed to register", Toast.LENGTH_LONG ).show();
                     }
-
                 }
-            });
+
+                ;
 
 
-
+        });
     }
 }
