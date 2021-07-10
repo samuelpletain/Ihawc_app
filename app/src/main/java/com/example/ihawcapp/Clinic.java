@@ -14,7 +14,7 @@ public class Clinic extends Provider {
         this.website = website;
     }
 
-    public Clinic(String name, String field, String specialties, String email, String phone, HashMap<String, String> hours, String network, String address, String website) {
+    public Clinic(String name, String field, String specialties, String email, String phone, String hours, String network, String address, String website) {
         super(name, field, specialties, email, phone, hours);
         this.network = network;
         this.address = address;

@@ -5,7 +5,6 @@ package com.example.ihawcapp;
  *I used this video as a framework on how to do this part https://www.youtube.com/watch?v=Z-RE1QuUWPg
  */
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,17 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Register extends AppCompatActivity implements View.OnClickListener{
     private EditText reg_email, reg_password, reg_name, reg_address, reg_phone;
@@ -111,12 +101,15 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
             reg_password.requestFocus();
             return;
         }
-        /* testing if registration works
-        Practitioner practitioner = new Practitioner();
-        practitioner.setEmail(email);
-        practitioner.setName(name);
-        practitioner.setAdresses(address);//Should this be a hash map or string? and how do I convert
-        practitioner.setPhone(phone);*/
+
+        Intent nextScreen = new Intent(this, RegisterPractitioner2.class);
+        nextScreen.putExtra("pracPassword", password);
+        nextScreen.putExtra("pracEmail", email);
+        nextScreen.putExtra("pracName", name);
+        nextScreen.putExtra("pracAddress", address);
+        nextScreen.putExtra("pracPhone", phone);
+        startActivity(nextScreen);
+        /*FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
@@ -133,16 +126,19 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         practitioner.setName(name);
                         practitioner.setAdresses(address);//Should this be a hash map or string? and how do I convert
                         practitioner.setPhone(phone);
-                        Toast.makeText(Register.this, "made it here", Toast.LENGTH_LONG).show();
+                        Intent nextScreen = new Intent(this, RegisterPracticioner2.class);
+                        nextScreen.putExtra("pracClass", (Serializable) practitioner);
+                        startActivity(nextScreen);
 
 
-                        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
                         db.collection("provider")
                                 .add(practitioner)
                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                     @Override
                                     public void onSuccess(DocumentReference documentReference) {
                                         Toast.makeText(Register.this, "User has been registered successfully!", Toast.LENGTH_LONG).show();
+
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
@@ -159,6 +155,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 ;
 
 
-        });
+        });*/
+
     }
 }

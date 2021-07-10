@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IHAWCApp">
-        <activity android:name=".RegisterPracticioner2"/>
+        <activity android:name=".RegisterPractitioner2"/>
 
         <activity android:name=".RegisterClinic2" />
         <activity android:name=".RegisterPatient2" />

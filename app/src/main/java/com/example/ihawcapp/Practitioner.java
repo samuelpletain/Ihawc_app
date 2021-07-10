@@ -1,5 +1,7 @@
 package com.example.ihawcapp;
 
+import android.widget.EditText;
+
 import java.util.HashMap;
 
 public class Practitioner extends Provider {
