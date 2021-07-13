@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    android:layout_height="match_parent"
+     android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#854D9EED"
@@ -68,22 +73,104 @@
         app:layout_constraintStart_toStartOf="@+id/reg_address"
         app:layout_constraintTop_toBottomOf="@+id/reg_address" />
 
+    <EditText
+        android:id="@+id/provider_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/reg_phone"
+        app:layout_constraintStart_toStartOf="@+id/reg_phone"
+        app:layout_constraintTop_toTopOf="@+id/reg_phone" />
+
+    <EditText
+        android:id="@+id/practicioner_credentials"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="Credentials"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/provider_title"
+        app:layout_constraintStart_toStartOf="@+id/provider_title"
+        app:layout_constraintTop_toBottomOf="@+id/provider_title" />
+
+    <EditText
+        android:id="@+id/practicioner_tribal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Tribal Affiliation"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/practicioner_credentials"
+        app:layout_constraintStart_toStartOf="@+id/practicioner_credentials"
+        app:layout_constraintTop_toBottomOf="@+id/practicioner_credentials" />
+
+    <CheckBox
+        android:id="@+id/prac_telehealth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Telehealth"
+        app:layout_constraintEnd_toEndOf="@+id/prac_field"
+        app:layout_constraintStart_toStartOf="@+id/prac_field"
+        app:layout_constraintTop_toBottomOf="@+id/prac_field" />
+
+    <EditText
+        android:id="@+id/prac_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Hours"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/practicioner_tribal"
+        app:layout_constraintStart_toStartOf="@+id/practicioner_tribal"
+        app:layout_constraintTop_toBottomOf="@+id/practicioner_tribal" />
+
+    <EditText
+        android:id="@+id/prac_specialty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Specialty"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/prac_hours"
+        app:layout_constraintStart_toStartOf="@+id/prac_hours"
+        app:layout_constraintTop_toBottomOf="@+id/prac_hours" />
+
+    <EditText
+        android:id="@+id/prac_field"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Field"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/prac_specialty"
+        app:layout_constraintStart_toStartOf="@+id/prac_specialty"
+        app:layout_constraintTop_toBottomOf="@+id/prac_specialty" />
+
+
     <Button
         android:id="@+id/reg_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Next"
-        app:layout_constraintEnd_toEndOf="@+id/reg_phone"
-        app:layout_constraintStart_toStartOf="@+id/reg_phone"
-        app:layout_constraintTop_toBottomOf="@+id/reg_drop_list" />
+        app:layout_constraintEnd_toEndOf="@+id/prac_field"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="@+id/prac_field"
+        app:layout_constraintTop_toBottomOf="@+id/prac_telehealth" />
 
-    <Spinner
-        android:id="@+id/reg_drop_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/reg_phone"
-        app:layout_constraintStart_toStartOf="@+id/reg_phone"
-        app:layout_constraintTop_toBottomOf="@+id/reg_phone" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
