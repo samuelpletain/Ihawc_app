@@ -133,7 +133,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
 
 
-        // Probably not needed this will be done in the RegisterPractitioner2.java class
+
         mAuth.createUserWithEmailAndPassword(email,password)
             .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
