@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     private TextView register;
+    private TextView TxtPassword;
 
     // defining the Login objects from login1.xml
     private EditText Email; //editTextTextEmailAddress
@@ -39,6 +40,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         register = (TextView)findViewById(R.id.register);
         register.setOnClickListener(this);
 
+
+        TxtPassword = (TextView)findViewById(R.id.resetPassword);
+        TxtPassword.setOnClickListener(this);
+
+
         // initiate the object firebaseAuth
         firebaseAuth =  FirebaseAuth.getInstance();
 
@@ -50,6 +56,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         progressDialog = new ProgressDialog(this);
         Btlogin.setOnClickListener(this);
     }
+
 
     public void loginUser(){
         // get the email and password from the text boxes
@@ -79,9 +86,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         //checking if success
                         if (task.isSuccessful()){
 
-                            Toast.makeText(Login.this, " Wellcome ",Toast.LENGTH_LONG).show();
-                            // Intent intention = new Intent(getApplication(),needtoadaclass.class);
-                            //startActivity(intention);
+                            Toast.makeText(Login.this, " Welcome ",Toast.LENGTH_LONG).show();
+                            Intent intention = new Intent(getApplication(),MainActivity.class);
+                            startActivity(intention);
 
                         } else{
                             Toast.makeText(Login.this,"User Not Found",Toast.LENGTH_SHORT).show();
@@ -100,10 +107,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 startActivity(new Intent(this, Reg_Choice.class));
                 break;
 
+            case R.id.resetPassword:
+                startActivity(new Intent(this, PasswordReset.class));
+                break;
+
             case R.id.login_button:
                 loginUser();
+                break;
         }
     }
+
+
 
 
 }

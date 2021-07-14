@@ -7,4 +7,5 @@
         <item>Practicioner</item>
         <item>Patient</item>
     </string-array>
+    <string name="userEmail">User Email</string>
 </resources>

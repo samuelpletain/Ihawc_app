@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IHAWCApp">
-        <activity android:name=".Reg_Choice"></activity>
+        <activity android:name=".PasswordReset"></activity>
+        <activity android:name=".Reg_Choice" />
         <activity android:name=".RegisterPractitioner2" />
         <activity android:name=".RegisterClinic2" />
         <activity android:name=".RegisterPatient2" />
