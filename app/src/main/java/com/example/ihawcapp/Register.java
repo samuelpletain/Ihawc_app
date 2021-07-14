@@ -150,6 +150,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         practitioner.setTribalAffiliation(tribal);
                         practitioner.setHours(hours);
                         practitioner.setSpecialties(specialty);
+                        practitioner.setType("practicioner");
 
 
 

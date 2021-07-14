@@ -68,6 +68,7 @@ public class RegisterClinic2 extends AppCompatActivity implements View.OnClickLi
         String website = clinic_website.getText().toString().trim();
         String specialty = clinic_specialty.getText().toString().trim();
         String field = clinic_field.getText().toString().trim();
+
         if (email.isEmpty()){
             reg_email.setError("Email is required!");
             reg_email.requestFocus();
@@ -123,6 +124,7 @@ public class RegisterClinic2 extends AppCompatActivity implements View.OnClickLi
                             clinic.setNetwork(network);
                             clinic.setAddress(address);
                             clinic.setWebsite(website);
+                            clinic.setType("clinic");
                             Toast.makeText(RegisterClinic2.this, clinic.getWebsite(), Toast.LENGTH_LONG).show();
 
 

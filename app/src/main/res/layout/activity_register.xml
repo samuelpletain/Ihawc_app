@@ -162,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Next"
+        android:text="Submit"
         app:layout_constraintEnd_toEndOf="@+id/prac_field"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="@+id/prac_field"

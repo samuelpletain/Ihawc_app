@@ -11,6 +11,7 @@ public class Provider {
     public String email;
     public String phone;
     public String hours;
+    public String type;
 
     public Provider(String name, String field, String specialties, String email, String phone, String hours) {
         this.name = name;
@@ -27,6 +28,7 @@ public class Provider {
         this.email = email;
         this.phone = phone;
         this.hours = hours;
+        this.type = type;
     }
 
 
@@ -78,5 +80,9 @@ public class Provider {
 
     public void setHours(String hours) {
         this.hours = hours;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
