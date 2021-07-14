@@ -113,7 +113,7 @@ public class RegisterPatient2 extends AppCompatActivity implements View.OnClickL
 
 
 
-                            db.collection("provider")
+                            db.collection("patient")
                                     .add(patient)
                                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override

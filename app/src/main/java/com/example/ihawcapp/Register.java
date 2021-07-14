@@ -57,6 +57,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         // telehealth=(EditText)findViewById(R.id.prac_telehealth);
         reg_next = (Button)findViewById(R.id.reg_next);
         reg_next.setOnClickListener(this);
+        telehealth = (CheckBox)findViewById(R.id.telehealth);
 
     }
 
@@ -83,6 +84,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         String hours = prac_hours.getText().toString().trim();
         String specialty = prac_specialty.getText().toString().trim();
         String field = prac_field.getText().toString().trim();
+
+
 
 
         if (email.isEmpty()){
@@ -151,6 +154,10 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                         practitioner.setHours(hours);
                         practitioner.setSpecialties(specialty);
                         practitioner.setType("practicioner");
+
+                        if (telehealth.isChecked()){
+                            practitioner.setTelehealth(Boolean.TRUE);
+                        }
 
 
 
