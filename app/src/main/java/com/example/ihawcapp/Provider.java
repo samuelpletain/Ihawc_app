@@ -10,9 +10,10 @@ public class Provider {
     public String specialties;
     public String email;
     public String phone;
-    public HashMap<String, String> hours;
+    public String hours;
+    public String type;
 
-    public Provider(String name, String field, String specialties, String email, String phone, HashMap<String, String> hours) {
+    public Provider(String name, String field, String specialties, String email, String phone, String hours) {
         this.name = name;
         this.field = field;
         this.specialties = specialties;
@@ -27,6 +28,7 @@ public class Provider {
         this.email = email;
         this.phone = phone;
         this.hours = hours;
+        this.type = type;
     }
 
 
@@ -51,7 +53,7 @@ public class Provider {
         return phone;
     }
 
-    public HashMap<String, String> getHours() {
+    public String getHours() {
         return hours;
     }
     //Robert created setters in order to create the object needed to pass to the database.
@@ -76,7 +78,11 @@ public class Provider {
         this.phone = phone;
     }
 
-    public void setHours(HashMap<String, String> hours) {
+    public void setHours(String hours) {
         this.hours = hours;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -97,7 +97,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.register:
-                startActivity(new Intent(this, Register.class));
+                startActivity(new Intent(this, Reg_Choice.class));
                 break;
 
             case R.id.login_button:

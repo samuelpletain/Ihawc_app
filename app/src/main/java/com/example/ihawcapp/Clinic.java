@@ -7,19 +7,22 @@ public class Clinic extends Provider {
     public String address;
     public String website;
 
+    public Clinic(String name, String field, String specialty, String email, String phone, String network, String address, String website) {
+
+        this.network = this.network;
+        this.address = this.address;
+        this.website = this.website;
+    }
+
+
+
     public Clinic() {
-
-        this.network = network;
-        this.address = address;
-        this.website = website;
+        this.network = this.network;
+        this.address = this.address;
+        this.website = this.website;
     }
 
-    public Clinic(String name, String field, String specialties, String email, String phone, HashMap<String, String> hours, String network, String address, String website) {
-        super(name, field, specialties, email, phone, hours);
-        this.network = network;
-        this.address = address;
-        this.website = website;
-    }
+
 
     public String getNetwork() {
         return network;
