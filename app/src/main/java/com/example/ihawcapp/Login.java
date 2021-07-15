@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
     private TextView register;
+    private TextView TxtPassword;
 
     // defining the Login objects from login1.xml
     private EditText Email; //editTextTextEmailAddress
@@ -38,6 +39,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         register = findViewById(R.id.register);
         register.setOnClickListener(this);
+
+
+        TxtPassword = findViewById(R.id.resetPassword);
+        TxtPassword.setOnClickListener(this);
+
 
         // initiate the object firebaseAuth
         firebaseAuth =  FirebaseAuth.getInstance();
@@ -100,10 +106,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 startActivity(new Intent(this, Reg_Choice.class));
                 break;
 
+            case R.id.resetPassword:
+                startActivity(new Intent(this, PasswordReset.class));
+                break;
+
             case R.id.login_button:
                 loginUser();
+                break;
         }
     }
+
+
 
 
 }

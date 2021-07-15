@@ -8,6 +8,7 @@
         <item>Practitioner</item>
         <item>Patient</item>
     </string-array>
+    <string name="userEmail">User Email</string>
 
     <string-array name="search_drop_list">
         <item>Clinic</item>
