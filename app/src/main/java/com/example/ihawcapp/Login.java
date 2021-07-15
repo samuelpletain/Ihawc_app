@@ -36,16 +36,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login1);
 
-        register = (TextView)findViewById(R.id.register);
+        register = findViewById(R.id.register);
         register.setOnClickListener(this);
 
         // initiate the object firebaseAuth
         firebaseAuth =  FirebaseAuth.getInstance();
 
         // declaring the view's
-        Email =  (EditText) findViewById(R.id.editTextTextEmailAddress);
-        Password =  (EditText) findViewById(R.id.password_login);
-        Btlogin =  (Button) findViewById(R.id.login_button);
+        Email =  findViewById(R.id.editTextTextEmailAddress);
+        Password =  findViewById(R.id.password_login);
+        Btlogin =  findViewById(R.id.login_button);
 
         progressDialog = new ProgressDialog(this);
         Btlogin.setOnClickListener(this);
@@ -79,9 +79,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         //checking if success
                         if (task.isSuccessful()){
 
-                            Toast.makeText(Login.this, " Wellcome ",Toast.LENGTH_LONG).show();
-                            // Intent intention = new Intent(getApplication(),needtoadaclass.class);
-                            //startActivity(intention);
+                            Toast.makeText(Login.this, " Welcome ",Toast.LENGTH_LONG).show();
+                            Intent intention = new Intent(getApplication(), MainActivity.class);
+                            startActivity(intention);
 
                         } else{
                             Toast.makeText(Login.this,"User Not Found",Toast.LENGTH_SHORT).show();

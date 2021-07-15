@@ -1,10 +1,17 @@
 <resources>
     <string name="app_name">IHAWC App</string>
     <string name="telehealth">Telehealth</string>
+    <string name="search_button">Search</string>
 
     <string-array name="reg_drop_list">
         <item>Clinic</item>
-        <item>Practicioner</item>
+        <item>Practitioner</item>
         <item>Patient</item>
+    </string-array>
+
+    <string-array name="search_drop_list">
+        <item>Clinic</item>
+        <item>Practitioner</item>
+        <item>Both</item>
     </string-array>
 </resources>

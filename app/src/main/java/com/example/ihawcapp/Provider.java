@@ -21,14 +21,9 @@ public class Provider {
         this.phone = phone;
         this.hours = hours;
     }
+
     public Provider() {
-        this.name = name;
-        this.field = field;
-        this.specialties = specialties;
-        this.email = email;
-        this.phone = phone;
-        this.hours = hours;
-        this.type = type;
+
     }
 
 
