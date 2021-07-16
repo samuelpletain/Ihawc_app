@@ -2,17 +2,19 @@
     <string name="app_name">IHAWC App</string>
     <string name="telehealth">Telehealth</string>
     <string name="search_button">Search</string>
+    <string name="userEmail">User Email</string>
+    <string name="failure_message">An error occurred while trying to connect to the database. Click on the button below to try again. If the error persists, try again later.</string>
+    <string name="reload_button">Reload</string>
 
     <string-array name="reg_drop_list">
         <item>Clinic</item>
         <item>Practitioner</item>
         <item>Patient</item>
     </string-array>
-    <string name="userEmail">User Email</string>
 
     <string-array name="search_drop_list">
-        <item>Clinic</item>
-        <item>Practitioner</item>
-        <item>Both</item>
+        <item>Clinics and Practitioners</item>
+        <item>Clinics Only</item>
+        <item>Practitioners Only</item>
     </string-array>
 </resources>
