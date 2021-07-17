@@ -1,6 +1,9 @@
 package com.example.ihawcapp;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
 import android.view.View;
@@ -98,6 +101,13 @@ public class QuerySingle implements Runnable {
                             if (Objects.nonNull(practitioner.getEmail())){
                                 String email = practitioner.getEmail();
                                 emailTextView.setText(email);
+                                emailTextView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email));
+                                        activity.get().startActivity(intent);
+                                    }
+                                });
                             } else {
                                 emailTextView.setVisibility(View.GONE);
                             }
@@ -106,6 +116,15 @@ public class QuerySingle implements Runnable {
                             if (Objects.nonNull(practitioner.getPhone())){
                                 String phone = practitioner.getPhone();
                                 phoneTextView.setText(phone);
+                                phoneTextView.setTextColor(Color.parseColor("#000000"));
+                                phoneTextView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                                        intent.setData(Uri.parse("tel:"+phone));
+                                        activity.get().startActivity(intent);
+                                    }
+                                });
                             } else {
                                 phoneTextView.setVisibility(View.GONE);
                             }
@@ -171,8 +190,16 @@ public class QuerySingle implements Runnable {
 
                             TextView websiteTextView = activity.get().findViewById(R.id.websiteClinic);
                             if (Objects.nonNull(clinic.getWebsite())){
-                                String field = clinic.getWebsite();
-                                websiteTextView.setText(field);
+                                String website = clinic.getWebsite();
+                                websiteTextView.setText(website);
+                                websiteTextView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                                        intent.setData(Uri.parse(website));
+                                        activity.get().startActivity(intent);
+                                    }
+                                });
                             } else {
                                 websiteTextView.setVisibility(View.GONE);
                             }
@@ -197,6 +224,13 @@ public class QuerySingle implements Runnable {
                             if (Objects.nonNull(clinic.getEmail())){
                                 String email = clinic.getEmail();
                                 emailTextView.setText(email);
+                                emailTextView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + email));
+                                        activity.get().startActivity(intent);
+                                    }
+                                });
                             } else {
                                 emailTextView.setVisibility(View.GONE);
                             }
@@ -205,6 +239,15 @@ public class QuerySingle implements Runnable {
                             if (Objects.nonNull(clinic.getPhone())){
                                 String phone = clinic.getPhone();
                                 phoneTextView.setText(phone);
+                                phoneTextView.setTextColor(Color.parseColor("#000000"));
+                                phoneTextView.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                                        intent.setData(Uri.parse("tel:"+phone));
+                                        activity.get().startActivity(intent);
+                                    }
+                                });
                             } else {
                                 phoneTextView.setVisibility(View.GONE);
                             }
