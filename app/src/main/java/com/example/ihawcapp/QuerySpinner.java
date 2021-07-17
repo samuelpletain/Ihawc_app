@@ -76,16 +76,16 @@ public class QuerySpinner implements Runnable {
                                 Spinner specialty = activity.get().findViewById(R.id.speciality);
 
 
-                                ArrayAdapter<String> adapterSpecialties = new ArrayAdapter<>(activity.get(), android.R.layout.simple_spinner_dropdown_item, (String[]) specialitiesList.toArray());
+                                ArrayAdapter<String> adapterSpecialties = new ArrayAdapter(activity.get(), android.R.layout.simple_spinner_dropdown_item, specialitiesList.toArray());
                                 specialty.setAdapter(adapterSpecialties);
 
-                                ArrayAdapter<String> adapterType = new ArrayAdapter<>(activity.get(), android.R.layout.simple_spinner_dropdown_item, activity.get().getResources().getStringArray(R.array.search_drop_list));
+                                ArrayAdapter<String> adapterType = new ArrayAdapter(activity.get(), android.R.layout.simple_spinner_dropdown_item, activity.get().getResources().getStringArray(R.array.search_drop_list));
                                 type.setAdapter(adapterType);
 
-                                ArrayAdapter<String> adapterState = new ArrayAdapter<>(activity.get(), android.R.layout.simple_spinner_dropdown_item, (String[]) statesList.toArray());
+                                ArrayAdapter<String> adapterState = new ArrayAdapter(activity.get(), android.R.layout.simple_spinner_dropdown_item, statesList.toArray());
                                 state.setAdapter(adapterState);
 
-                                ArrayAdapter<String> adapterTribe = new ArrayAdapter<>(activity.get(), android.R.layout.simple_spinner_dropdown_item, (String[]) tribesList.toArray());
+                                ArrayAdapter<String> adapterTribe = new ArrayAdapter(activity.get(), android.R.layout.simple_spinner_dropdown_item, tribesList.toArray());
                                 tribal.setAdapter(adapterTribe);
                             }
                         });

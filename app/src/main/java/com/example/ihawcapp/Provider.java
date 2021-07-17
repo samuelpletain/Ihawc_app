@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 public class Provider {
 
-
     public String name;
     public String field;
     public String specialties;
@@ -12,21 +11,21 @@ public class Provider {
     public String phone;
     public String hours;
     public String type;
+    public String tribalAffiliation;
 
-    public Provider(String name, String field, String specialties, String email, String phone, String hours) {
+    public Provider(String name, String field, String specialties, String email, String phone, String hours, String tribalAffiliation) {
         this.name = name;
         this.field = field;
         this.specialties = specialties;
         this.email = email;
         this.phone = phone;
         this.hours = hours;
+        this.tribalAffiliation = tribalAffiliation;
     }
 
     public Provider() {
 
     }
-
-
 
     public String getName() {
         return name;
@@ -51,8 +50,12 @@ public class Provider {
     public String getHours() {
         return hours;
     }
-    //Robert created setters in order to create the object needed to pass to the database.
 
+    public String getTribalAffiliation() {
+        return tribalAffiliation;
+    }
+
+    //Robert created setters in order to create the object needed to pass to the database.
     public void setName(String name) {
         this.name = name;
     }
@@ -79,5 +82,9 @@ public class Provider {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public void setTribalAffiliation(String tribalAffiliation) {
+        this.tribalAffiliation = tribalAffiliation;
     }
 }

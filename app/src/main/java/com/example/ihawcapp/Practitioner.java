@@ -10,25 +10,16 @@ public class Practitioner extends Provider {
     public String adresses; //possible hashmap later???
     public Boolean telehealth;
     public String thirdParty;
-    public String tribalAffiliation;
 
     public Practitioner() {
-
-        this.title = title;
-        this.credentials = credentials;
-        this.adresses = adresses;
-        this.telehealth = telehealth;
-        this.thirdParty = thirdParty;
-        this.tribalAffiliation = tribalAffiliation;
     }
 
-    public Practitioner(String title, String credentials, String adresses, Boolean telehealth, String thirdParty, String tribalAffiliation) {
+    public Practitioner(String title, String credentials, String adresses, Boolean telehealth, String thirdParty) {
         this.title = title;
         this.credentials = credentials;
         this.adresses = adresses;
         this.telehealth = telehealth;
         this.thirdParty = thirdParty;
-        this.tribalAffiliation = tribalAffiliation;
     }
 
     public String getTitle() {
@@ -51,9 +42,6 @@ public class Practitioner extends Provider {
         return thirdParty;
     }
 
-    public String getTribalAffiliation() {
-        return tribalAffiliation;
-    }
     public void setTitle(String title) {
         this.title = title;
     }
@@ -72,9 +60,5 @@ public class Practitioner extends Provider {
 
     public void setThirdParty(String thirdParty) {
         this.thirdParty = thirdParty;
-    }
-
-    public void setTribalAffiliation(String tribalAffiliation) {
-        this.tribalAffiliation = tribalAffiliation;
     }
 }

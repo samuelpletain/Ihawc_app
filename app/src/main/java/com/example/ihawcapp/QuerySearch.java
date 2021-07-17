@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -13,9 +16,10 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 
 public class QuerySearch implements Runnable {
-    private static final String TAG = "Query";
+    private static final String TAG = "QuerySearch";
 
     WeakReference<Activity> activity;
     CollectionReference providers;
@@ -23,7 +27,8 @@ public class QuerySearch implements Runnable {
     String state;
     String type;
     String specialty;
-    String res;
+    String[] res;
+    ArrayList<String> ids = new ArrayList<>();
 
     public QuerySearch(WeakReference<Activity> activity, CollectionReference providers, String query) {
         this.activity = activity;
@@ -45,34 +50,37 @@ public class QuerySearch implements Runnable {
     public void run() {
         Query q = FirebaseFirestore.getInstance().collection("provider");
         if (!state.equals("State")) {
-            Log.d(TAG, "In the loop, with " + state);
             q = q.whereEqualTo("state", state);
         }
         if (!type.equals("Clinics and Practitioners")) {
-            Log.d(TAG, "In the loop, with " + type);
             q = q.whereEqualTo("type", type);
         }
         if (!tribe.equals("Tribal Affiliation")) {
-            Log.d(TAG, "In the loop, with " + tribe);
             q = q.whereEqualTo("tribalAffiliation", tribe);
         }
         q.get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        res = "";
-                        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                            res = res.concat(documentSnapshot.getId()).concat(": ").concat(documentSnapshot.get("state").toString()) + "\n";
+            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @Override
+                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                    String data = "";
+                    for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+                        if (documentSnapshot.get("specialties").toString().contains(specialty) || specialty.equals("Field")) {
+                            data = data.concat(documentSnapshot.get("name").toString() + ";");
+                            ids.add(documentSnapshot.getId());
                         }
-                        activity.get().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                TextView results = activity.get().findViewById(R.id.results);
-                                results.setText(res);
-                            }
-                        });
                     }
-
-                });
+                    res = data.split(";");
+                    activity.get().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            ProviderAdapter customAdapter = new ProviderAdapter(res, ids, activity);
+                            RecyclerView recyclerView = activity.get().findViewById(R.id.recycler_results);
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(activity.get()));
+                            recyclerView.setAdapter(customAdapter);
+                        }
+                    });
+                }
+            });
     }
 }
