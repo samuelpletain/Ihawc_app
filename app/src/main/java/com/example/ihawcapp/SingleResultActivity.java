@@ -16,6 +16,7 @@ import java.lang.ref.WeakReference;
 public class SingleResultActivity extends AppCompatActivity {
 
     private WeakReference<Activity> activity;
+    private String name = "";
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference providers = db.collection("provider");
@@ -26,12 +27,15 @@ public class SingleResultActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String documentId = intent.getStringExtra("ID");
-        Log.d("singleResultActivity", documentId);
 
         activity = new WeakReference<>(SingleResultActivity.this);
 
         QuerySingle query = new QuerySingle(activity, providers, documentId);
         Thread thread = new Thread(query, "QuerySingle");
         thread.start();
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

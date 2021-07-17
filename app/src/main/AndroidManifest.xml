@@ -11,22 +11,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IHAWCApp">
-        <activity android:name=".SingleResultActivity"/>
-        <activity android:name=".FailureLoadingActivity"/>
-        <activity android:name=".PasswordReset" />
-        <activity android:name=".Reg_Choice" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".RegisterPractitioner2" />
-        <activity android:name=".RegisterClinic2" />
-        <activity android:name=".RegisterPatient2" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:label="@string/provider_search">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SearchActivity"
+            android:parentActivityName=".MainActivity"
+            android:launchMode="singleTask"
+            android:label="@string/provider_search_results"/>
+        <activity android:name=".SingleResultActivity"
+            android:parentActivityName=".SearchActivity"
+            android:launchMode="singleTask"
+            android:label="@string/details"/>
+        <activity android:name=".FailureLoadingActivity"/>
+        <activity android:name=".PasswordReset" />
+        <activity android:name=".Reg_Choice" />
+        <activity android:name=".RegisterPractitioner2" />
+        <activity android:name=".RegisterClinic2" />
+        <activity android:name=".RegisterPatient2" />
+        <activity android:name=".Register" />
         <activity android:name=".Login" />
     </application>
 

@@ -1,9 +1,11 @@
 package com.example.ihawcapp;
 
 import android.app.Activity;
+import android.os.Build;
 import android.util.Log;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,6 +19,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class QuerySearch implements Runnable {
     private static final String TAG = "QuerySearch";
@@ -60,16 +64,28 @@ public class QuerySearch implements Runnable {
         }
         q.get()
             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     String data = "";
                     for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                         if (documentSnapshot.get("specialties").toString().contains(specialty) || specialty.equals("Field")) {
-                            data = data.concat(documentSnapshot.get("name").toString() + ";");
+                            data = data.concat(documentSnapshot.get("name").toString()
+                                    .concat(" - ")
+                                    .concat(documentSnapshot.get("tribalAffiliation").toString())
+                                    .concat("\n"));
+                            if (Objects.nonNull(documentSnapshot.get("address"))) {
+                                data = data.concat(documentSnapshot.get("address").toString());
+                            } else if (Objects.nonNull(documentSnapshot.get("adresses"))) {
+                                data = data.concat(documentSnapshot.get("adresses").toString());
+                            }
+                            data = data.concat(";");
                             ids.add(documentSnapshot.getId());
                         }
                     }
                     res = data.split(";");
+                    Arrays.sort(res);
+                    Log.d(TAG, Arrays.toString(res));
                     activity.get().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
