@@ -47,6 +47,7 @@ public class QuerySingle implements Runnable {
         document.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(@NonNull DocumentSnapshot task) {
+                // If the document is a Practitioner
                 if (task.get("type").toString().equals("practitioner")) {
                     practitioner = task.toObject(Practitioner.class);
 
@@ -71,6 +72,8 @@ public class QuerySingle implements Runnable {
                                 fieldTextView.setText(field);
                             } else {
                                 fieldTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.fieldLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView titleTextView = activity.get().findViewById(R.id.titles);
@@ -79,6 +82,8 @@ public class QuerySingle implements Runnable {
                                 titleTextView.setText(title);
                             } else {
                                 titleTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.titlesLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView specialitiesTextView = activity.get().findViewById(R.id.specialties);
@@ -87,6 +92,8 @@ public class QuerySingle implements Runnable {
                                 specialitiesTextView.setText(specialties);
                             } else {
                                 specialitiesTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.specialtiesLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView credentialsTextView = activity.get().findViewById(R.id.credentials);
@@ -95,6 +102,9 @@ public class QuerySingle implements Runnable {
                                 credentialsTextView.setText(credentials);
                             } else {
                                 credentialsTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.credentialsLabel);
+                                label.setVisibility(View.GONE);
+
                             }
 
                             TextView emailTextView = activity.get().findViewById(R.id.email);
@@ -110,6 +120,8 @@ public class QuerySingle implements Runnable {
                                 });
                             } else {
                                 emailTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.emailLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView phoneTextView = activity.get().findViewById(R.id.phone);
@@ -127,6 +139,8 @@ public class QuerySingle implements Runnable {
                                 });
                             } else {
                                 phoneTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.phoneLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView adressesTextView = activity.get().findViewById(R.id.addresses);
@@ -135,6 +149,8 @@ public class QuerySingle implements Runnable {
                                 adressesTextView.setText(adresses);
                             } else {
                                 adressesTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.addressesLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             CheckBox telehealthCheckBox = activity.get().findViewById(R.id.telehealth);
@@ -151,6 +167,8 @@ public class QuerySingle implements Runnable {
                                 thirdPartyTextView.setText(thirdParty);
                             } else {
                                 thirdPartyTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.thirdLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView hoursTextView = activity.get().findViewById(R.id.hours);
@@ -159,6 +177,8 @@ public class QuerySingle implements Runnable {
                                 hoursTextView.setText(hours);
                             } else {
                                 hoursTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.hoursLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView tribalAffiliationTextView = activity.get().findViewById(R.id.tribal);
@@ -167,10 +187,12 @@ public class QuerySingle implements Runnable {
                                 tribalAffiliationTextView.setText(tribalAffiliation);
                             } else {
                                 tribalAffiliationTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.tribalLabel);
+                                label.setVisibility(View.GONE);
                             }
                         }
                     });
-
+                // If the document is a Clinic
                 } else if (task.get("type").toString().equals("clinic")) {
                     clinic = task.toObject(Clinic.class);
 
@@ -202,6 +224,8 @@ public class QuerySingle implements Runnable {
                                 });
                             } else {
                                 websiteTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.websiteClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView networkTextView = activity.get().findViewById(R.id.networkClinic);
@@ -210,6 +234,8 @@ public class QuerySingle implements Runnable {
                                 networkTextView.setText(title);
                             } else {
                                 networkTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.networkClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView specialitiesTextView = activity.get().findViewById(R.id.servicesClinic);
@@ -218,6 +244,8 @@ public class QuerySingle implements Runnable {
                                 specialitiesTextView.setText(specialties);
                             } else {
                                 specialitiesTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.servicesClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView emailTextView = activity.get().findViewById(R.id.emailClinic);
@@ -233,6 +261,8 @@ public class QuerySingle implements Runnable {
                                 });
                             } else {
                                 emailTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.emailClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView phoneTextView = activity.get().findViewById(R.id.phoneClinic);
@@ -250,6 +280,8 @@ public class QuerySingle implements Runnable {
                                 });
                             } else {
                                 phoneTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.phoneClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView adressesTextView = activity.get().findViewById(R.id.addressClinic);
@@ -258,6 +290,8 @@ public class QuerySingle implements Runnable {
                                 adressesTextView.setText(adresses);
                             } else {
                                 adressesTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.addressClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView hoursTextView = activity.get().findViewById(R.id.hoursClinic);
@@ -266,6 +300,8 @@ public class QuerySingle implements Runnable {
                                 hoursTextView.setText(hours);
                             } else {
                                 hoursTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.hoursClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
 
                             TextView tribalAffiliationTextView = activity.get().findViewById(R.id.tribalClinic);
@@ -274,6 +310,8 @@ public class QuerySingle implements Runnable {
                                 tribalAffiliationTextView.setText(tribalAffiliation);
                             } else {
                                 tribalAffiliationTextView.setVisibility(View.GONE);
+                                TextView label = activity.get().findViewById(R.id.tribalClinicLabel);
+                                label.setVisibility(View.GONE);
                             }
                         }
                     });

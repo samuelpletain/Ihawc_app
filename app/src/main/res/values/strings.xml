@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">IHAWC App</string>
-    <string name="telehealth">Telehealth</string>
+    <string name="telehealth">Telehealth:</string>
     <string name="search_button">Search</string>
     <string name="userEmail">User Email</string>
     <string name="failure_message">An error occurred while trying to connect to the database. Click on the button below to try again. If the error persists, try again later.</string>
@@ -8,7 +8,18 @@
     <string name="provider_search">Provider Search</string>
     <string name="provider_search_results">Provider Search Results</string>
     <string name="details">Provider Details</string>
-
+    <string name="networkLabel">Network:</string>
+    <string name="hoursLabel">Hours:</string>
+    <string name="websiteLabel">Website:</string>
+    <string name="phoneLabel">Phone:</string>
+    <string name="emailLabel">Email:</string>
+    <string name="servicesLabel">Services:</string>
+    <string name="addressLabel">Address:</string>
+    <string name="tribalLabel">Tribal Affiliation:</string>
+    <string name="credentialsLabel">Credentials:</string>
+    <string name="fieldLabel">Field:</string>
+    <string name="titlesLabel">Titles:</string>
+    <string name="thirdLabel">Third party:</string>
 
     <string-array name="reg_drop_list">
         <item>Clinic</item>
