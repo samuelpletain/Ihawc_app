@@ -62,7 +62,7 @@ public class QuerySearch implements Runnable {
         if (!tribe.equals("Tribal Affiliation")) {
             q = q.whereEqualTo("tribalAffiliation", tribe);
         }
-        q.get()
+        q.orderBy("name").get()
             .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @RequiresApi(api = Build.VERSION_CODES.N)
                 @Override
@@ -84,7 +84,7 @@ public class QuerySearch implements Runnable {
                         }
                     }
                     res = data.split(";");
-                    Arrays.sort(res);
+                    //Arrays.sort(res);
                     Log.d(TAG, Arrays.toString(res));
                     activity.get().runOnUiThread(new Runnable() {
                         @Override
