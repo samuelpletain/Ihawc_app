@@ -73,6 +73,7 @@ public class PasswordReset extends AppCompatActivity implements View.OnClickList
                         progressDialog.dismiss();
                     }
                 });
+        startActivity(new Intent(this, Login.class));
 
 
     }
