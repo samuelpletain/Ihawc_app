@@ -27,9 +27,11 @@ public class QuerySpinner implements Runnable {
 
     @Override
     public void run() {
+        // Query the database
         providers.get()
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
+                    // If the query fails, start the FailureLoadingActivity
                     public void onFailure(@NonNull Exception e) {
                         activity.get().runOnUiThread(new Runnable() {
                             @Override
@@ -42,10 +44,13 @@ public class QuerySpinner implements Runnable {
                 })
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
+                    // Otherwise...
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        // Create arrays to hold the results
                         ArrayList<String> specialitiesList = new ArrayList<>();
                         ArrayList<String> tribesList = new ArrayList<>();
                         ArrayList<String> statesList = new ArrayList<>();
+                        // Add the "header" data that will be displayed on the spinner when the activity is launched
                         tribesList.add("Tribal Affiliation");
                         statesList.add("State");
                         specialitiesList.add("Field");
@@ -54,14 +59,18 @@ public class QuerySpinner implements Runnable {
                             String specialities = documentSnapshot.get("specialties").toString();
                             String state = documentSnapshot.get("state").toString();
                             String tribalAffiliation = documentSnapshot.get("tribalAffiliation").toString();
+                            // Since Firestore doesn't have a contains request, we need to loop through the list of specialities after splitting the string
                             for (String specialty : specialities.split(", ")) {
+                                // If the specialty is not in the array already, we add it
                                 if (!specialitiesList.contains(specialty)) {
                                     specialitiesList.add(specialty);
                                 }
                             }
+                            // If the tribe is not in the array already, we add it
                             if (!tribesList.contains(tribalAffiliation)) {
                                 tribesList.add(tribalAffiliation);
                             }
+                            // If the state is not in the array already, we add it
                             if (!statesList.contains(state)) {
                                 statesList.add(state);
                             }
@@ -70,12 +79,13 @@ public class QuerySpinner implements Runnable {
                         activity.get().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                // Find the spinners
                                 Spinner state = activity.get().findViewById(R.id.state);
                                 Spinner type = activity.get().findViewById(R.id.typeOfDoctor);
                                 Spinner tribal = activity.get().findViewById(R.id.tribal_info);
                                 Spinner specialty = activity.get().findViewById(R.id.speciality);
 
-
+                                // For each spinner, use an adapter to display the data array
                                 ArrayAdapter<String> adapterSpecialties = new ArrayAdapter(activity.get(), android.R.layout.simple_spinner_dropdown_item, specialitiesList.toArray());
                                 specialty.setAdapter(adapterSpecialties);
 

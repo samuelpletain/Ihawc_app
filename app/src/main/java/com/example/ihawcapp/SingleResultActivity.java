@@ -24,12 +24,13 @@ public class SingleResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        // Get the document id from the intent
         Intent intent = getIntent();
         String documentId = intent.getStringExtra("ID");
 
         activity = new WeakReference<>(SingleResultActivity.this);
 
+        // From a back thread, query the database fetch the document to display
         QuerySingle query = new QuerySingle(activity, providers, documentId);
         Thread thread = new Thread(query, "QuerySingle");
         thread.start();

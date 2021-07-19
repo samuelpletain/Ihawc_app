@@ -19,6 +19,7 @@ public class SearchActivity extends AppCompatActivity {
 
     private static final String TAG = "SearchActivity-Tag";
 
+    // Connect to the database and select the provider collection
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference providers = db.collection("provider");
 
@@ -29,7 +30,7 @@ public class SearchActivity extends AppCompatActivity {
 
         activity = new WeakReference<>(SearchActivity.this);
 
-        // Fetch data string from intent
+        // Fetch query string from intent
         Intent intent = getIntent();
         String queryString = intent.getStringExtra("query");
 
