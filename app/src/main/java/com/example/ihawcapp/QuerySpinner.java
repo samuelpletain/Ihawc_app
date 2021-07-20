@@ -20,11 +20,18 @@ public class QuerySpinner implements Runnable {
     WeakReference<Activity> activity;
     CollectionReference providers;
 
+    /**
+     * Class constructor.
+     */
     public QuerySpinner(WeakReference<Activity> activity, CollectionReference providers) {
         this.activity = activity;
         this.providers = providers;
     }
 
+    /**
+     * Query the database and create 3 arrays (state, tribalAffiliation and specialties) with every unique occurrence from that field.
+     * Populate the spinners on the UI thread with the results with the help of an ArrayAdapter.
+     */
     @Override
     public void run() {
         // Query the database

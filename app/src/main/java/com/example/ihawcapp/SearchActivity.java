@@ -23,6 +23,9 @@ public class SearchActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference providers = db.collection("provider");
 
+    /**
+     * Set the activity layout, get the query string from the intent and start a query to the database in a background thread.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

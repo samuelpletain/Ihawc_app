@@ -36,12 +36,19 @@ public class QuerySingle implements Runnable {
     Practitioner practitioner;
     Clinic clinic;
 
+    /**
+     * Class constructor.
+     */
     public QuerySingle(WeakReference<Activity> activity, CollectionReference providers, String id) {
         this.activity = activity;
         this.providers = providers;
         this.id = id;
     }
 
+    /**
+     * Query the database and serialize the returned object according to the type.
+     * Populate the elements of the object on the UI thread if they exist.
+     */
     @Override
     public void run() {
         DocumentReference document = providers.document(id);

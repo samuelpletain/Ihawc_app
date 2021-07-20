@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference providers = db.collection("provider");
 
+    /**
+     * Set the activity layout and start a query to the database in a background thread to populate the spinners.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         thread.start();
     }
 
+    /**
+     * Get the user input from the spinner and query the database in a background thread.
+     */
     public void onClick(View view) {
         // Start a new intent
         Intent intent = new Intent(this, SearchActivity.class);

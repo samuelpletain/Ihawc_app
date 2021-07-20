@@ -21,6 +21,9 @@ public class SingleResultActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference providers = db.collection("provider");
 
+    /**
+     * Set the activity layout and start a query to the database in a background thread to populate layout.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,10 @@ public class SingleResultActivity extends AppCompatActivity {
         thread.start();
     }
 
+    /**
+     * Setter
+     * @param name  A string that represent the field name in the document.
+     */
     public void setName(String name) {
         this.name = name;
     }

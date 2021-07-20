@@ -37,6 +37,9 @@ public class QuerySearch implements Runnable {
     String[] res;
     ArrayList<String> ids = new ArrayList<>();
 
+    /**
+     * Class constructor specifying number of objects to create.
+     */
     public QuerySearch(WeakReference<Activity> activity, CollectionReference providers, String query) {
         this.activity = activity;
         this.providers = providers;
@@ -54,6 +57,10 @@ public class QuerySearch implements Runnable {
         this.specialty = res[3];
     }
 
+    /**
+     * Query the database and filter the results based on the filters provided by the intent.
+     * Populate the UI thread's RecyclerView with the help of a CustomAdapter.
+     */
     @Override
     public void run() {
         // We create a query and add filters to it based on user input
